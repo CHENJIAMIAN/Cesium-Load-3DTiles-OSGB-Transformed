@@ -112,7 +112,7 @@ knockout.applyBindings(viewModel, toolbar);
 viewer._cesiumWidget._creditContainer.style.display = "none";//隐藏版权信息
 
 var tileset = new Cesium3DTileset({
-    url: '/data/tileset.json'
+    url: '/data/Data/Tile_+000_+000/tileset.json'//' / data / tileset.json '
 
 });
 tileset.readyPromise.then(function (tileset) {
