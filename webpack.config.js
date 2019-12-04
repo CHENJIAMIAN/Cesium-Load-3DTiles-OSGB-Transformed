@@ -24,26 +24,51 @@ module.exports = [{
         zlib: "empty"
     },
     resolve: {
-        mainFields: ['module', 'main']
+        mainFields: ['module', 'main'],
+        alias: {
+            '@': path.join(__dirname, '..', 'src'), //"d:\SVN PROJ\diankeyuan\Web\src"
+            '~': path.join(__dirname, '..', 'src'), //"d:\SVN PROJ\diankeyuan\Web\src"
+        }
     },
     module: {
         rules: [{
-            test: /\.css$/,
-            use: ['style-loader', 'css-loader']
-        }, {
-            test: /\.(png|gif|jpg|jpeg|svg|xml|json)$/,
-            use: ['url-loader']
-        }]
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            }, {
+                test: /\.(png|gif|jpg|jpeg|svg|xml)$/,
+                use: ['url-loader']
+            },
+            // {
+            //     test: /\.json$/,
+            //     loader: 'json-loader'
+            // }
+        ]
     },
     plugins: [
         new HtmlWebpackPlugin({
             template: 'src/index.html'
         }),
+        new CopyWebpackPlugin([{
+            from: 'src/data',
+            to: 'data'
+        }]),
         // Copy Cesium Assets, Widgets, and Workers to a static directory
-        new CopyWebpackPlugin([{ from: 'node_modules/cesium/Build/Cesium/Workers', to: 'Workers' }]),
-        new CopyWebpackPlugin([{ from: 'node_modules/cesium/Build/Cesium/ThirdParty', to: 'ThirdParty' }]),
-        new CopyWebpackPlugin([{ from: 'node_modules/cesium/Build/Cesium/Assets', to: 'Assets' }]),
-        new CopyWebpackPlugin([{ from: 'node_modules/cesium/Build/Cesium/Widgets', to: 'Widgets' }]),
+        new CopyWebpackPlugin([{
+            from: 'node_modules/cesium/Build/Cesium/Workers',
+            to: 'Workers'
+        }]),
+        new CopyWebpackPlugin([{
+            from: 'node_modules/cesium/Build/Cesium/ThirdParty',
+            to: 'ThirdParty'
+        }]),
+        new CopyWebpackPlugin([{
+            from: 'node_modules/cesium/Build/Cesium/Assets',
+            to: 'Assets'
+        }]),
+        new CopyWebpackPlugin([{
+            from: 'node_modules/cesium/Build/Cesium/Widgets',
+            to: 'Widgets'
+        }]),
         new webpack.DefinePlugin({
             // Define relative base path in cesium for loading assets
             CESIUM_BASE_URL: JSON.stringify('')

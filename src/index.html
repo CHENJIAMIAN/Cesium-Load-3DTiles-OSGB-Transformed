@@ -1,11 +1,35 @@
 <html>
-	<head>
-		<meta charset="utf-8">
-	  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	  	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
-		<title>Cesium + Webpack</title>
-	</head>
-	<body>
-		<div id="cesiumContainer"></div>
-	</body>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<title>Cesium + Webpack</title>
+	<style>
+		@import url(https://sandcastle.cesium.com/templates/bucket.css);
+
+		#toolbar {
+			background: rgba(42, 42, 42, 0.8);
+			padding: 4px;
+			border-radius: 4px;
+		}
+
+		#toolbar input {
+			vertical-align: middle;
+			padding-top: 2px;
+			padding-bottom: 2px;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="cesiumContainer" class="fullSize"></div>
+	<div id="toolbar">
+		<div>Height</div>
+		<input type="range" min="-100.0" max="100.0" step="1" data-bind="value: height, valueUpdate: 'input'">
+		<input type="text" size="5" data-bind="value: height">
+	</div>
+</body>
+
 </html>
