@@ -1,3 +1,11 @@
+[English](./README.en.md)
+
+<!-- codex-github-rules:bilingual-summary -->
+> **中文简介**：使用 Cesium 加载由 OSGB 转换而来的 3D Tiles 数据
+>
+> **English summary**: Load OSGB-converted 3D Tiles data with Cesium
+
+---
 # 说明
 	Fork From https://github.com/AnalyticalGraphicsInc/cesium-webpack-example
 	文章  https://blog.csdn.net/a571574085/article/details/103380458	
